@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Async generator that yields random floats with an asynchronous delay."""
+"""This module defines an asynchronous generator that yields
+ten random floating-point numbers between 0 and 10.
+Each value is produced after awaiting a one-second delay.
+"""
 
 import asyncio
 import random
