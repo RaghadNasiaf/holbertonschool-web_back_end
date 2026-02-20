@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 """
-This module defines an asynchronous generator named async_generator.
-It yields ten random floating-point numbers between 0 and 10.
-Each value is produced after awaiting a one-second asynchronous delay.
+Module that yields 10 random numbers
 """
-
 import asyncio
 import random
 from typing import AsyncGenerator
@@ -12,8 +9,7 @@ from typing import AsyncGenerator
 
 async def async_generator() -> AsyncGenerator[float, None]:
     """
-    Yield 10 random floats between 0 and 10.
-    The generator waits 1 second before yielding each value.
+    Loop 10 times, wait 1 second each time, and yield a random number
     """
     for _ in range(10):
         await asyncio.sleep(1)
