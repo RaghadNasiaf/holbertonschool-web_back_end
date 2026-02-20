@@ -2,19 +2,18 @@
 """Module that contains measure_runtime coroutine."""
 
 import asyncio
-import time
+from time import perf_counter
 
 async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 
 async def measure_runtime() -> float:
-    """Measure the runtime of running async_comprehension four times in parallel."""
-    start: float = time.time()
+    """Execute async_comprehension four times in parallel and measure runtime."""
+    start = perf_counter()
     await asyncio.gather(
         async_comprehension(),
         async_comprehension(),
         async_comprehension(),
-        async_comprehension()
+        async_comprehension(),
     )
-    end: float = time.time()
-    return end - start
+    return perf_counter() - start
