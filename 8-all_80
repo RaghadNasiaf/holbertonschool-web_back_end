@@ -1,2 +1,0 @@
-// my comment
-db.school.find({ score: { $gt: 80 } })
