@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Module for pagination helper function.
+This module contains a function to calculate start and end indexes.
 """
 from typing import Tuple
 
