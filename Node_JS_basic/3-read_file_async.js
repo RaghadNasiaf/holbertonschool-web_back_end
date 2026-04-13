@@ -10,7 +10,8 @@ function countStudents(path) {
 
       const lines = data.trim().split('\n').filter((line) => line.length > 0);
       const studentLines = lines.slice(1);
-      console.log(`Number of students: ${studentLines.length}`);
+      
+      let response = `Number of students: ${studentLines.length}`;
 
       const fields = {};
       studentLines.forEach((line) => {
@@ -18,21 +19,18 @@ function countStudents(path) {
         if (student.length === 4) {
           const firstName = student[0];
           const field = student[3];
-
-          if (!fields[field]) {
-            fields[field] = [];
-          }
+          if (!fields[field]) fields[field] = [];
           fields[field].push(firstName);
         }
       });
 
       for (const field in fields) {
         if (Object.prototype.hasOwnProperty.call(fields, field)) {
-          const list = fields[field].join(', ');
-          console.log(`Number of students in ${field}: ${fields[field].length}. List: ${list}`);
+          const fieldLog = `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}`;
+          response += `\n${fieldLog}`;
         }
       }
-      resolve();
+      resolve(response);
     });
   });
 }
